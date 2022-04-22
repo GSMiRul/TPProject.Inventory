@@ -1,6 +1,11 @@
+using Infrastructure.Tools;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+string connectionString = builder.Configuration.GetConnectionString("DevConection");
+builder.Services.AddEntityFramework(connectionString);
 
 builder.Services.AddControllersWithViews();
 
